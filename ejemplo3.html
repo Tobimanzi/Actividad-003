@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Funciones y Condicionales</title>
+</head>
+<body>
+
+<h1>Calculadora de Edad</h1>
+
+<label for="fecha">Fecha de nacimiento:</label>
+<input type="date" id="fecha">
+
+<button id="calcular">Calcular Edad</button>
+
+<p id="resultadoEdad"></p>
+
+<h3>Historial:</h3>
+<ul id="historial"></ul>
+
+<script>
+
+function calcularEdad(fechaNacimiento) {
+    const hoy = new Date();
+    const nacimiento = new Date(fechaNacimiento);
+
+    let edad = hoy.getFullYear() - nacimiento.getFullYear();
+    let mes = hoy.getMonth() - nacimiento.getMonth();
+
+    if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+        edad--;
+    }
+
+    if (edad < 0) {
+        return "El año de nacimiento no puede ser futuro";
+    } else if (edad > 120) {
+        return "¿Estás seguro de ese año?";
+    } else {
+        return `Tienes ${edad} años.`;
+    }
+}
+
+let historial = [];
+
+document.getElementById("calcular").addEventListener("click", function() {
+    const fecha = document.getElementById("fecha").value;
+
+    if (!fecha) {
+        document.getElementById("resultadoEdad").textContent = "Por favor ingresa una fecha.";
+        return;
+    }
+
+    const resultado = calcularEdad(fecha);
+    document.getElementById("resultadoEdad").textContent = resultado;
+
+    historial.unshift(fecha);
+    if (historial.length > 5) historial.pop();
+
+    mostrarHistorial();
+});
+
+function mostrarHistorial() {
+    const lista = document.getElementById("historial");
+    lista.innerHTML = "";
+
+    historial.forEach(function(item) {
+        const li = document.createElement("li");
+        li.textContent = item;
+        lista.appendChild(li);
+    });
+}
+
+</script>
+
+</body>
+</html>

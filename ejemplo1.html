@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi Primer Programa JavaScript</title>
+</head>
+<body>
+
+<h1>Mi primer script de JavaScript</h1>
+
+<script>
+// Mi primer programa en JavaScript
+console.log("¡Hola Mundo desde la consola!");
+
+// Variables
+let nombre = "Tobias";
+const edad = 18;
+var ciudad = "Buenos Aires";
+
+// Mostrar variables individuales
+console.log("Nombre:", nombre);
+console.log("Edad:", edad);
+console.log("Ciudad:", ciudad);
+
+// Concatenación tradicional
+console.log("Hola " + nombre + ", tienes " + edad + " años.");
+
+// Template literals
+console.log(`Hola ${nombre}, tienes ${edad} años y vives en ${ciudad}.`);
+
+// Booleano
+let estudiante = true;
+console.log("¿Es estudiante?", estudiante);
+
+// Array
+let hobbies = ["Programar", "Jugar", "Escuchar música"];
+console.log("Hobbies:", hobbies);
+
+// Objeto
+let persona = {
+    nombre: nombre,
+    edad: edad,
+    ciudad: ciudad
+};
+
+console.log("Objeto persona:", persona);
+
+// Tabla en consola
+let personas = [
+    { nombre: "Ana", edad: 22, ciudad: "Córdoba" },
+    { nombre: "Luis", edad: 30, ciudad: "Rosario" },
+    { nombre: "Tobias", edad: 18, ciudad: "Buenos Aires" }
+];
+
+console.table(personas);
+
+</script>
+
+</body>
+</html>
